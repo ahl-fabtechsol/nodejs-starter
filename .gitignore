@@ -1,0 +1,61 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+.pnpm-debug.log*
+
+# Logs
+logs/
+*.log
+logs/*.log
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Environment
+.env
+.env.*.local
+.env.local
+.env.test.local
+.env.production.local
+
+# Cache
+.cache/
+.cache-loader/
+dist/
+build/
+tmp/
+temp/
+
+# Editor directories and files
+.idea/
+.vscode/
+*.swp
+*.swo
+*.sublime-project
+*.sublime-workspace
+
+# OS specific files
+.DS_Store
+Thumbs.db
+
+# Coverage directories used by testing tools
+coverage/
+
+# Miscellaneous
+*.tgz
+*.gz
+*.zip
+*.log
+
+# Optional npm cache directory
+.npm/
+
+# Debugging files
+*.log
+
+# TypeScript
+*.tsbuildinfo

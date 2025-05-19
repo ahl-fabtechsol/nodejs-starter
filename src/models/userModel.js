@@ -3,14 +3,9 @@ import bcrypt from "bcrypt";
 
 const UserSchema = new mongoose.Schema(
   {
-    firstName: {
+    name: {
       type: String,
-      required: [false, "First Name is Required"],
-      default: null,
-    },
-    lastName: {
-      type: String,
-      required: false,
+      required: [false, "Name is Required"],
       default: null,
     },
     email: {
@@ -18,6 +13,48 @@ const UserSchema = new mongoose.Schema(
       required: [true, "Email is Required"],
       unique: [true, "Email already exists"],
     },
+    password: {
+      type: String,
+      minlength: [8, "Password must be at least 8 characters"],
+      required: [true, "Password is Required"],
+      select: false,
+    },
+    phone: {
+      type: String,
+      required: [false, "Phone is Required"],
+      default: null,
+    },
+    image: {
+      type: String,
+      required: [false, "Profile Image is Required"],
+      default: null,
+    },
+    verfied: {
+      type: Boolean,
+      default: false,
+    },
+    status: {
+      type: String,
+      enum: ["A", "I", "S"], // A = Active, I = Inactive, S = Suspended
+      default: "A",
+    },
+    role: {
+      type: String,
+      enum: ["AD", "S", "B", "M"], // AD = Admin, S = Seller, B = Buyer, M = Manager
+      default: "B",
+    },
+    following: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "SellerStore",
+      },
+    ],
+    whishlist: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Product",
+      },
+    ],
     refreshToken: {
       type: String,
       default: null,
